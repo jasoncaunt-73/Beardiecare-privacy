@@ -1,2 +1,2 @@
-# Beardiecare-privacy
-BeardieCare Privacy Policy
+# Beardiecare-pages
+BeardieCare Pages
