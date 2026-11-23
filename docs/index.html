@@ -94,21 +94,21 @@
   <main>
     <header>
       <h1>BeardieCare Privacy Policy</h1>
-      <p>Effective Date: November 22, 2026 &bull; App Package: com.aistudio.beardiecare.xqmrtv</p>
+      <p>Effective Date: November 23, 2026 &bull; App Package: com.aistudio.beardiecare.xqmrtv</p>
     </header>
 
     <section>
       <h2>1. Overview</h2>
-      <p>BeardieCare ("we", "our", or "the app") is a bearded dragon care and husbandry companion app for Android. This Privacy Policy explains what data BeardieCare collects, how it is stored and used, and how you can delete your account and data.</p>
+      <p>BeardieCare ("we", "our", or "the app") is a bearded dragon care and husbandry companion app for Android. This Privacy Policy explains what data BeardieCare collects, how it is stored and used, and how you can export or delete your account and data.</p>
     </section>
 
     <section>
       <h2>2. Information We Collect</h2>
       <ul>
         <li><strong>Google Account Information:</strong> When you sign in with Google via Firebase Authentication, we receive your Google user ID (UID), email address, and basic profile information solely to authenticate your account and isolate your private pet records.</li>
-        <li><strong>Pet &amp; Husbandry Records:</strong> Information you voluntarily enter, including bearded dragon profiles (name, morph, sex, hatch date, adoption date, UVB bulb replacement date, enclosure notes), feeding and supplement logs, weight/length logs, terrarium temperature and humidity readings, brumation cycles, and care schedules.</li>
+        <li><strong>Pet &amp; Husbandry Records:</strong> Information you voluntarily enter, including bearded dragon profiles (name, morph, sex, hatch date, adoption date, UVB bulb replacement date, enclosure notes), feeding and supplement logs, weight/length logs, terrarium readings (basking temperature, plus optional cool-side temperature and humidity only when those metrics are enabled), brumation cycles, and care schedules.</li>
         <li><strong>Profile Photos (Optional):</strong> Selected via Android's zero-permission Photo Picker. Only a local device URI reference is stored for display; BeardieCare does not access your broader photo library.</li>
-        <li><strong>Local Preferences &amp; Reminders:</strong> Theme mode (Auto/Light/Dark), temperature unit (&deg;F/&deg;C), 7/8-day supplement cycle configuration, and custom care reminders are stored locally on your device.</li>
+        <li><strong>Local Preferences, App Lock &amp; Reminders:</strong> Theme mode (Auto/Light/Dark), temperature unit (&deg;F/&deg;C), habitat metric toggles, 7/8-day supplement cycle configuration, custom supplement names, saved meal presets, custom care reminders, and an optional on-device salted/hashed 4&ndash;6 digit App Lock PIN are stored locally on your device. Biometric unlock relies strictly on the Android system biometric prompt; BeardieCare never accesses or stores raw fingerprint or facial recognition data.</li>
       </ul>
     </section>
 
@@ -116,26 +116,27 @@
       <h2>3. Permissions Used</h2>
       <ul>
         <li><strong>Internet Access:</strong> Used for Google Sign-In and syncing your husbandry data with Cloud Firestore.</li>
-        <li><strong>Notifications (Optional):</strong> Used only when you enable care, milestone, or custom reminders.</li>
+        <li><strong>Notifications (Optional):</strong> Requested only when you enable care, milestone, or custom reminders.</li>
         <li><strong>Receive Boot Completed (Optional):</strong> Used only to restore your enabled care reminder alarms after your device restarts.</li>
+        <li><strong>Biometric Unlock (Optional, <code>USE_BIOMETRIC</code>):</strong> Used only if you enable Biometric Unlock in Settings to verify your identity locally via Android's system prompt.</li>
       </ul>
       <p>BeardieCare does not request location, camera, microphone, contacts, or broad external storage permissions.</p>
     </section>
 
     <section>
-      <h2>4. Data Storage, Security &amp; Third-Party Services</h2>
+      <h2>4. Data Storage, Backups &amp; Third-Party Services</h2>
       <p>Your account and husbandry records are stored in Google Firebase Authentication and Cloud Firestore (provided by Google LLC) using security rules that restrict read/write access exclusively to your authenticated user ID.</p>
-      <p>BeardieCare contains <strong>no third-party advertising SDKs</strong>, does not sell personal data, and does not share your data with data brokers. Exported veterinary PDF reports and growth/milestone images are generated locally on your device and shared only when you explicitly initiate sharing.</p>
+      <p>BeardieCare contains <strong>no third-party advertising SDKs</strong>, does not sell personal data, and does not share your data with data brokers. Exported veterinary PDF reports, growth/milestone PNG cards, and JSON backup files (via Android's system file picker or Share sheet) are generated or read locally on your device only when you choose to export, share, or restore a backup. App Lock PIN hashes and authentication credentials are never included in exported backup files.</p>
     </section>
 
     <section id="data-deletion">
       <h2>5. Account &amp; Data Deletion</h2>
-      <p>You may delete individual dragon profiles or logs at any time inside the app. To permanently delete your BeardieCare account and all associated cloud data:</p>
+      <p>You may delete individual dragon profiles, logs, presets, or reminders at any time inside the app (every delete action requires confirmation). To permanently delete your BeardieCare account and all associated cloud data:</p>
       <ul>
         <li><strong>In the App:</strong> Sign in, tap your profile avatar in the top-right corner, and choose <strong>Delete Account &amp; Data</strong>.</li>
-        <li><strong>By Email Request:</strong> Email <a href="mailto:jasoncaunt73@gmail.com">jasoncaunt73@gmail.com</a> from your registered Google account email with the subject <em>BeardieCare Account Deletion Request</em>, and we will verify and remove your account records within 7 days.</li>
+        <li><strong>By Email Request:</strong> Email <a href="mailto:beardiecare73@gmail.com">beardiecare73@gmail.com</a> from your registered Google account email with the subject <em>BeardieCare Account Deletion Request</em>, and we will verify and remove your account records within 7 days.</li>
       </ul>
-      <p>Uninstalling the app removes locally stored preferences and scheduled local reminders from your device.</p>
+      <p>Uninstalling the app removes locally stored preferences, App Lock settings, and scheduled local reminders from your device.</p>
     </section>
 
     <section>
@@ -145,12 +146,5 @@
 
     <section>
       <h2>7. Contact</h2>
-      <p>For privacy questions or support, contact: <a href="mailto:jasoncaunt73@gmail.com">jasoncaunt73@gmail.com</a></p>
-    </section>
-
-    <footer>
-      &copy; 2026 BeardieCare &bull; Last updated November 22, 2026
-    </footer>
-  </main>
-</body>
-</html>
+      <p>For privacy questions, account requests, or support, contact the developer at: <a href="mailto:beardiecare73@gmail.com">beardiecare73@gmail.com</a></p>
+      <p>Community page: <a href="https://www.facebook.com/BeardieCare" target="_blank" rel="noopener noreferrer">BeardieCare on Facebook</a></p>
