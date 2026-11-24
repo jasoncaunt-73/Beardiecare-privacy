@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeardieCare — Privacy Policy</title>
+  <link rel="icon" type="image/png" href="assets/beardiecare_logo_512.png" />
+  <style>
+    :root {
+      --bg: #FAF6F0;
+      --surface: #FFFCF8;
+      --primary: #1E5640;
+      --accent: #C45525;
+      --text: #1F1C18;
+      --muted: #635A4E;
+      --border: #D5C6B3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121614;
+        --surface: #1B211E;
+        --primary: #7FD9B0;
+        --accent: #FFB596;
+        --text: #F2EDE6;
+        --muted: #B3B0A8;
+        --border: #444E48;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px 16px 48px;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    header {
+      background: #1E5640;
+      color: #FFFFFF;
+      padding: 28px 24px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    @media (prefers-color-scheme: dark) {
+      header {
+        background: #064C34;
+      }
+    }
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 1.75rem;
+    }
+    header p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    p, li {
+      margin: 0 0 8px;
+      font-size: 0.96rem;
+    }
+    ul {
+      margin: 6px 0 0;
+      padding-left: 20px;
+    }
+    a {
+      color: var(--accent);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <main id="standalone-privacy-root">
+    <header>
+      <h1>BeardieCare Privacy Policy</h1>
+      <p>Loading policy&hellip;</p>
+    </header>
+  </main>
+
+  <noscript>
+    <main>
+      <section>
+        <h2>JavaScript Required</h2>
+        <p>View <a href="privacy_policy.json">privacy_policy.json</a> directly.</p>
+      </section>
+    </main>
+  </noscript>
+
+  <script>
+    (function () {
+      const rootEl = document.getElementById("standalone-privacy-root");
+      fetch("privacy_policy.json")
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(function (policy) {
+          const frag = document.createDocumentFragment();
+          const header = document.createElement("header");
+          const h1 = document.createElement("h1");
+          h1.textContent = (policy.appName || "BeardieCare") + " Privacy Policy";
+          const meta = document.createElement("p");
+          meta.textContent =
+            "Effective Date: " +
+            (policy.effectiveDate || "") +
+            " \u2022 App Package: " +
+            (policy.packageId || "");
+          header.appendChild(h1);
+          header.appendChild(meta);
+          frag.appendChild(header);
+
+          (policy.sections || []).forEach(function (sec) {
+            const section = document.createElement("section");
+            if (sec.id) section.id = sec.id;
+            const h2 = document.createElement("h2");
+            h2.textContent = sec.title || "";
+            section.appendChild(h2);
+
+            (sec.paragraphs || []).forEach(function (txt) {
+              const p = document.createElement("p");
+              p.textContent = txt;
+              section.appendChild(p);
+            });
+
+            if (Array.isArray(sec.bullets) && sec.bullets.length) {
+              const ul = document.createElement("ul");
+              sec.bullets.forEach(function (b) {
+                const li = document.createElement("li");
+                if (b.label) {
+                  const strong = document.createElement("strong");
+                  strong.textContent = b.label + ": ";
+                  li.appendChild(strong);
+                }
+                li.appendChild(document.createTextNode(b.text || ""));
+                ul.appendChild(li);
+              });
+              section.appendChild(ul);
+            }
+
+            if (sec.footerNote) {
+              const p = document.createElement("p");
+              p.textContent = sec.footerNote;
+              section.appendChild(p);
+            }
+
+            if (Array.isArray(sec.links) && sec.links.length) {
+              sec.links.forEach(function (lnk) {
+                const p = document.createElement("p");
+                if (lnk.label) p.appendChild(document.createTextNode(lnk.label + ": "));
+                const a = document.createElement("a");
+                if (/^(https?:|mailto:|#)/i.test(lnk.url || "")) {
+                  a.href = lnk.url;
+                  if (/^https?:/i.test(lnk.url)) {
+                    a.target = "_blank";
+                    a.rel = "noopener noreferrer";
+                  }
+                }
+                a.textContent = lnk.text || lnk.url || "";
+                p.appendChild(a);
+                section.appendChild(p);
+              });
+            }
+
+            frag.appendChild(section);
+          });
+
+          const footer = document.createElement("footer");
+          footer.textContent = policy.footerText || "\u00a9 2026 BeardieCare";
+          frag.appendChild(footer);
+          rootEl.replaceChildren(frag);
+        })
+        .catch(function () {
+          const sec = document.createElement("section");
+          const p = document.createElement("p");
+          p.textContent = "Unable to load privacy_policy.json directly over file://. Serve over HTTP/GitHub Pages or inspect ";
+          const a = document.createElement("a");
+          a.href = "privacy_policy.json";
+          a.textContent = "privacy_policy.json";
+          p.appendChild(a);
+          sec.appendChild(p);
+          rootEl.appendChild(sec);
+        });
+    })();
+  </script>
+</body>
+</html>

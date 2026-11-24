@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeardieCare — Complete Bearded Dragon Husbandry &amp; Care Companion</title>
+  <meta name="description" content="BeardieCare is an Android husbandry companion for bearded dragon keepers: live age ticker, 7/8-day supplement rotations, weight curves, Vet PDF reports, terrarium climate gauges, 180-day T5 UVB guard, brumation tracking, and JSON backup/restore." />
+  <link rel="icon" type="image/png" href="assets/beardiecare_logo_512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <img src="assets/beardiecare_logo_512.png" alt="BeardieCare Logo" class="brand-logo" />
+        <span>BeardieCare</span>
+      </a>
+
+      <nav id="primary-nav" class="nav-links" aria-label="Primary Navigation">
+        <a href="#features">Features</a>
+        <a href="#how-to-use">How to Use</a>
+        <a href="#targets">Husbandry Targets</a>
+        <a href="#privacy-backup">Data &amp; Backup</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="theme-pill-group" role="group" aria-label="Theme Mode">
+          <button type="button" class="theme-pill active" data-set-theme="auto" aria-pressed="true">Auto</button>
+          <button type="button" class="theme-pill" data-set-theme="light" aria-pressed="false">Light</button>
+          <button type="button" class="theme-pill" data-set-theme="dark" aria-pressed="false">Dark</button>
+        </div>
+        <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav">
+          Menu
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-banner-card">
+          <img src="assets/img_hero_terrarium.jpg" alt="Desert bearded dragon basking inside a terrarium" class="hero-banner-img" />
+          <div class="hero-banner-scrim" aria-hidden="true"></div>
+          <div class="hero-banner-content">
+            <div class="hero-badge-row">
+              <span class="pill-badge pill-terracotta">Android App &bull; v25.0</span>
+              <span class="pill-badge pill-emerald">Desert &amp; Nocturnal M3 Theme</span>
+            </div>
+            <h1>Your Complete Pogona Sanctuary &amp; Care Companion</h1>
+            <p>
+              Track multiple bearded dragons with a real-time age ticker, customizable 7-day or 8-day supplement rotations,
+              smooth growth charts, Vet-ready PDF reports, terrarium climate &amp; 180-day T5 UVB monitoring, brumation hydration checks, and portable JSON backups.
+            </p>
+            <div class="cta-row">
+              <a href="#how-to-use" class="btn btn-primary">Explore How to Use</a>
+              <a href="https://www.facebook.com/beardiecare73" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light">Facebook Community</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Sanctuary Dashboard Card (Mirrors HomeScreen) -->
+        <aside class="sanctuary-preview-card" aria-label="Sanctuary Dashboard Preview">
+          <div class="preview-dragon-header">
+            <img src="assets/img_dragon_avatar.jpg" alt="Bearded dragon profile avatar" class="preview-avatar" />
+            <div class="preview-dragon-meta">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                <h2>Ember</h2>
+                <span class="pill-badge pill-amber">Sub-Adult</span>
+              </div>
+              <div class="preview-subtext">Hypo Leatherback &bull; Female</div>
+            </div>
+          </div>
+
+          <div class="ticker-box">
+            <div class="ticker-top">
+              <span class="ticker-label">LIVE AGE TICKER</span>
+              <span id="live-ticker-clock" class="ticker-clock font-mono">00:00:00</span>
+            </div>
+            <div class="ticker-age-main font-display">426 Days Old</div>
+            <div class="ticker-age-sub">60 weeks, 6 days &bull; Hatchday in 304 days</div>
+          </div>
+
+          <div class="preview-metrics-grid">
+            <div class="mini-stat">
+              <div class="mini-stat-label">Today&rsquo;s Supplement</div>
+              <div class="mini-stat-value" style="color:var(--secondary);">Calcium + D3</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-label">Latest Weight</div>
+              <div class="mini-stat-value font-mono">384.5 g <span style="color:var(--optimal);font-size:0.82rem;">(+8.0g)</span></div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-label">Basking Surface</div>
+              <div class="mini-stat-value font-mono">103 &deg;F <span style="color:var(--optimal);font-size:0.8rem;">Optimal</span></div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-label">T5 HO UVB Tube</div>
+              <div class="mini-stat-value font-mono">42 / 180 d</div>
+            </div>
+          </div>
+
+          <div class="quick-pills-row" aria-hidden="true">
+            <div class="quick-pill">+ Meal</div>
+            <div class="quick-pill">+ Weight</div>
+            <div class="quick-pill">+ Climate</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Core Features Overview -->
+    <section id="features" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Built for Keepers</span>
+          <h2>Everything Inside BeardieCare</h2>
+          <p>Four focused care tabs—Sanctuary, Care, Growth, and Habitat—backed by customizable schedules, safety confirmations, and private cloud sync.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon-chip">&#129422;</div>
+            <h3>Sanctuary &amp; Multi-Dragon Switcher</h3>
+            <p>Manage one beardie or an entire reptile room from one unified Google-synced dashboard.</p>
+            <ul class="feature-bullets">
+              <li>Live 1-second Age Ticker (days, weeks &amp; HH:MM:SS)</li>
+              <li>Automatic life stage badges from Hatchling to Senior</li>
+              <li>Hatchday &amp; Gotcha Day milestone countdowns</li>
+              <li>Zero-permission Android Photo Picker for dragon avatars</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon-chip emerald">&#129367;</div>
+            <h3>Feedings &amp; 7/8-Day Supplements</h3>
+            <p>Log salads, insects, treats, and appetite levels in two taps using custom meal presets.</p>
+            <ul class="feature-bullets">
+              <li>Choose a 7-day (Mon&ndash;Sun) or rolling 8-day rotation</li>
+              <li>Rename default supplements to match your exact brands</li>
+              <li>Auto-highlights today&rsquo;s scheduled supplement in Log Meal</li>
+              <li>Full supplement labels shown clearly across Care &amp; Reminders</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon-chip amber">&#128200;</div>
+            <h3>Growth Curves &amp; Vet Reports</h3>
+            <p>Monitor steady gram gains and body length with interactive charts and single-tap exports.</p>
+            <ul class="feature-bullets">
+              <li>Tap any plotted point to inspect weight, date &amp; length (cm)</li>
+              <li>Filter across 1M, 3M, 1Y, or All time ranges</li>
+              <li>Generate single-page Veterinary Health PDF summaries</li>
+              <li>Share 1080&times;1080 Milestone Cards &amp; Growth Chart PNGs</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon-chip">&#127777;</div>
+            <h3>Terrarium Climate &amp; UVB Guard</h3>
+            <p>Stay on top of basking gradients, optional humidity checks, and UV bulb replacement.</p>
+            <ul class="feature-bullets">
+              <li>Toggle <strong>Show: Cool Side</strong> and <strong>Humidity</strong> on or off</li>
+              <li>Toggled-off metrics are hidden and excluded from saved logs</li>
+              <li>Instant global conversion between &deg;F and &deg;C</li>
+              <li>180-day T5 HO UVB countdown with 1-tap &ldquo;Replaced&rdquo; reset</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon-chip emerald">&#127769;</div>
+            <h3>Brumation Den &amp; Hydration Alerts</h3>
+            <p>Safely guide your dragon through winter dormancy with dedicated weigh-ins and soak tracking.</p>
+            <ul class="feature-bullets">
+              <li>Switches Sanctuary supplement status to <em>Brumation Rest (Water Only)</em></li>
+              <li>Log shallow hydration/soak check-ins and updated weight</li>
+              <li>Flags weight drops &ge; 10% with a veterinary warning banner</li>
+              <li>Tracks active and completed brumation history cycles</li>
+            </ul>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon-chip amber">&#128274;</div>
+            <h3>Reminders, App Lock &amp; JSON Backups</h3>
+            <p>Keep schedules consistent and protect your records with on-device security and full portability.</p>
+            <ul class="feature-bullets">
+              <li>Daily care &amp; milestone alerts plus unlimited custom reminders</li>
+              <li>On-device salted/hashed 4&ndash;6 digit PIN &amp; Biometric Unlock</li>
+              <li>Export/Share complete <code>.json</code> backups &amp; Merge/Replace restore</li>
+              <li>Every delete action across the app prompts for confirmation</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Visual Spotlights matching App Drawables -->
+        <div class="spotlight-grid">
+          <div class="spotlight-card">
+            <div class="spotlight-media">
+              <img src="assets/img_hero_terrarium.jpg" alt="Basking rock and succulent terrarium artwork from BeardieCare" />
+            </div>
+            <div class="spotlight-body">
+              <span class="pill-badge pill-surface" style="align-self:flex-start;">Habitat &amp; Climate</span>
+              <h3>Smart Condition Toggles</h3>
+              <p style="margin:0;color:var(--muted);font-size:0.94rem;">
+                Only check basking temperature and UVB on quick morning sweeps? Toggle off <strong>Cool Side</strong> or <strong>Humidity</strong> right on the Habitat screen—BeardieCare hides those fields and won&rsquo;t store dummy values, while Vet PDFs cleanly omit unrecorded metrics. Logged humidity values display clearly as <strong>% Humidity</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="spotlight-card">
+            <div class="spotlight-media">
+              <img src="assets/img_brumation_den.jpg" alt="Sleeping bearded dragon inside desert cave during brumation" />
+            </div>
+            <div class="spotlight-body">
+              <span class="pill-badge pill-amber" style="align-self:flex-start;">Winter Dormancy</span>
+              <h3>Brumation Mode Safeguards</h3>
+              <p style="margin:0;color:var(--muted);font-size:0.94rem;">
+                Start a brumation cycle in <strong>Care &rarr; Brumation</strong> with your dragon&rsquo;s starting weight. Log periodic soak &amp; hydration checks, watch automatic percentage-change safety checks, and tap <strong>Wake Up</strong> when appetite and basking return to normal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Step-by-Step How to Use Guide -->
+    <section id="how-to-use" class="section-block" style="padding-top:24px;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Step-by-Step Manual</span>
+          <h2>How to Use BeardieCare</h2>
+          <p>Filter by section or search any feature—from setting up your 8-day supplement plan to exporting a JSON backup.</p>
+        </div>
+
+        <div class="guide-controls">
+          <div class="chip-row" role="group" aria-label="Filter guide categories">
+            <button type="button" class="filter-chip active" data-guide-filter="all" aria-pressed="true">All Guides</button>
+            <button type="button" class="filter-chip" data-guide-filter="dragons" aria-pressed="false">Dragons &amp; Age</button>
+            <button type="button" class="filter-chip" data-guide-filter="feeding" aria-pressed="false">Meals &amp; Supplements</button>
+            <button type="button" class="filter-chip" data-guide-filter="growth" aria-pressed="false">Growth &amp; Exports</button>
+            <button type="button" class="filter-chip" data-guide-filter="habitat" aria-pressed="false">Habitat &amp; UVB</button>
+            <button type="button" class="filter-chip" data-guide-filter="brumation" aria-pressed="false">Brumation</button>
+            <button type="button" class="filter-chip" data-guide-filter="settings" aria-pressed="false">Alerts, Lock &amp; Backup</button>
+          </div>
+          <div class="guide-search-wrap">
+            <label for="guide-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Search user guide</label>
+            <input id="guide-search" type="search" class="guide-search-input" placeholder="Search guide (e.g. UVB, 8-day, backup, PDF)..." />
+          </div>
+        </div>
+
+        <div class="guide-cards-grid" id="guide-cards-container">
+          <article class="guide-card" data-guide-card data-category="dragons" data-keywords="profile dragon add edit switch delete confirm photo morph hatchling avatar">
+            <div class="guide-card-cat">Sanctuary &amp; Dragons</div>
+            <h3>1. Adding, Editing &amp; Switching Dragons</h3>
+            <p class="guide-summary">Set up multiple dragon profiles and customize photos with zero storage permissions.</p>
+            <ol class="guide-steps">
+              <li>Sign in with Google, then tap the <strong>+</strong> button in the top-right bar to create a profile (name, morph, sex, hatch date, Gotcha Day, UVB date, notes).</li>
+              <li>Tap the dragon&rsquo;s name in the top-left bar (or <strong>Avatar Menu &rarr; Manage Dragons</strong>) to switch dragons or delete a profile (confirmation required).</li>
+              <li>Tap the pencil icon on the Sanctuary hero banner to change photos via Android&rsquo;s zero-permission Photo Picker or update enclosure notes.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="dragons" data-keywords="age ticker hatchday gotcha day birthday anniversary milestone life stage">
+            <div class="guide-card-cat">Sanctuary &amp; Dragons</div>
+            <h3>2. Live Age Ticker &amp; Milestone Countdowns</h3>
+            <p class="guide-summary">Follow exact chronological age and upcoming annual anniversaries.</p>
+            <ol class="guide-steps">
+              <li>View exact days old, weeks &amp; days, and the live <span class="font-mono">HH:MM:SS</span> counter on the Sanctuary dashboard.</li>
+              <li>Life stage pills update automatically: Hatchling (&lt;3m), Juvenile (3&ndash;9m), Sub-Adult (9&ndash;18m), Adult (18m&ndash;7y), Senior (7y+).</li>
+              <li>Hatchday and Gotcha Day cards count down to your dragon&rsquo;s next celebration and highlight on the day itself.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="feeding" data-keywords="meal feeding dubia crickets greens salad appetite preset log delete confirm">
+            <div class="guide-card-cat">Meals &amp; Supplements</div>
+            <h3>3. Logging Meals &amp; Saved Presets</h3>
+            <p class="guide-summary">Record greens, feeders, appetite, and calcium/multivitamin dusting in seconds.</p>
+            <ol class="guide-steps">
+              <li>Tap <strong>+ Meal</strong> on Sanctuary or open <strong>Care &rarr; Feedings &rarr; Log Meal</strong>.</li>
+              <li>Save favorite combinations via <strong>Add Preset</strong> for 1-tap logging later (tap <strong>&times;</strong> on a preset chip to delete with confirmation).</li>
+              <li>Supplement chips show full supplement names and pre-select today&rsquo;s scheduled supplement—or adjust per meal before saving.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="feeding" data-keywords="supplement rotation calcium d3 multivitamin 7 day 8 day cycle schedule rename">
+            <div class="guide-card-cat">Meals &amp; Supplements</div>
+            <h3>4. 7-Day vs 8-Day Supplement Rotation</h3>
+            <p class="guide-summary">Tailor weekly or 8-day rolling schedules and assign brand names.</p>
+            <ol class="guide-steps">
+              <li>Open <strong>Settings &rarr; Supplement Rotation Cycle &rarr; Rename Supplements</strong> to customize names for Calcium + D3, Calcium (No D3), and Multivitamin.</li>
+              <li>Tap <strong>Preview &amp; Amend Schedule</strong> (or visit <strong>Care &rarr; Reminders</strong>) to switch between 7-Day (Mon&ndash;Sun) and 8-Day (Day 1&ndash;8) modes.</li>
+              <li>In 8-day rolling mode, tap <strong>Set Today as Day 1</strong> anytime to realign the cycle to today.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="growth" data-keywords="weight grams length cm growth chart curve graph filter delete confirm">
+            <div class="guide-card-cat">Growth &amp; Reports</div>
+            <h3>5. Weight Charts &amp; Range Filters</h3>
+            <p class="guide-summary">Inspect historical weigh-ins, optional body length, and growth velocity.</p>
+            <ol class="guide-steps">
+              <li>Tap <strong>+ Weight</strong> on Sanctuary or <strong>Growth &rarr; Weigh</strong> to log weight in grams and optional length in cm.</li>
+              <li>Once 2+ measurements are saved, tap directly on the curve to inspect any entry&rsquo;s exact weight, date, and length.</li>
+              <li>Filter across <strong>1M</strong>, <strong>3M</strong>, <strong>1Y</strong>, or <strong>All</strong>, and tap any row&rsquo;s trash icon (with confirmation) to delete an entry.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="growth" data-keywords="pdf vet report export share card image png social">
+            <div class="guide-card-cat">Growth &amp; Reports</div>
+            <h3>6. Veterinary PDF Reports &amp; Social Cards</h3>
+            <p class="guide-summary">Bring organized clinical history to exotic vet visits or share milestones.</p>
+            <ol class="guide-steps">
+              <li>Tap <strong>Vet Report</strong> on Sanctuary or Growth to generate a clean single-page PDF with dragon age, habitat averages, weights, feedings, and brumations.</li>
+              <li>If Cool Side or Humidity toggles were off for certain checks, unrecorded fields are omitted cleanly rather than showing blanks or fake zeros.</li>
+              <li>Use <strong>Share Card</strong> (1080&times;1080 milestone PNG) or <strong>Share Chart</strong> (high-res growth PNG) to share to any app.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="habitat" data-keywords="temperature basking cool side humidity celsius fahrenheit c f gauge habitat toggle hide record">
+            <div class="guide-card-cat">Habitat &amp; UVB</div>
+            <h3>7. Habitat Temps, % Humidity &amp; Toggles</h3>
+            <p class="guide-summary">Track thermal zones cleanly without logging metrics you didn&rsquo;t measure.</p>
+            <ol class="guide-steps">
+              <li>Tap <strong>+ Climate</strong> on Sanctuary or <strong>Habitat &rarr; Check</strong> to record basking temp and UVB bulb status.</li>
+              <li>Use the <strong>Show: Cool Side</strong> and <strong>Humidity</strong> chips on Habitat to toggle either metric. Hidden metrics are not saved in new readings.</li>
+              <li>Switch between <strong>&deg;F</strong> and <strong>&deg;C</strong> in <strong>Settings &rarr; Temperature Units</strong>; existing readings convert automatically and prompt before deletion.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="habitat" data-keywords="uvb bulb light 180 days replaced mbd t5">
+            <div class="guide-card-cat">Habitat &amp; UVB</div>
+            <h3>8. T5 HO UVB Bulb 180-Day Guard</h3>
+            <p class="guide-summary">Prevent metabolic bone disease by replacing UV tubes before output fades.</p>
+            <ol class="guide-steps">
+              <li>Linear T5 HO UVB fluorescent tubes still glow visibly after their UV output drops past ~180 days.</li>
+              <li>Watch the UVB lifespan bar on the <strong>Habitat</strong> tab, which flags replacement once 180 days elapse.</li>
+              <li>Install a fresh bulb and tap <strong>Replaced</strong> to reset the counter to today.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="brumation" data-keywords="brumation sleep dormancy hydration soak weight drop wake up">
+            <div class="guide-card-cat">Brumation</div>
+            <h3>9. Brumation Tracker &amp; Hydration Checks</h3>
+            <p class="guide-summary">Safely track winter rest, weight stability, and soak check-ins.</p>
+            <ol class="guide-steps">
+              <li>Open <strong>Care &rarr; Brumation</strong> and tap <strong>Start Brumation Tracker</strong> with your dragon&rsquo;s starting weight.</li>
+              <li>Log <strong>Hydration Check</strong> soaks and weights during rest—BeardieCare warns if weight drops &ge; 10%.</li>
+              <li>Tap <strong>Wake Up</strong> once basking and normal feeding resume to archive the completed cycle.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="settings" data-keywords="notifications alerts reminders alarm custom time daily permission theme dark light auto">
+            <div class="guide-card-cat">Alerts, Lock &amp; Backup</div>
+            <h3>10. Notifications, Themes &amp; Custom Reminders</h3>
+            <p class="guide-summary">Personalize visual appearance and schedule reliable daily or one-off alerts.</p>
+            <ol class="guide-steps">
+              <li>Set <strong>Appearance Theme</strong> to Auto, Light, or Dark in <strong>Settings</strong>.</li>
+              <li>Configure your daily feeding alert time and Hatchday/Gotcha Day alerts in <strong>Care &rarr; Reminders</strong>.</li>
+              <li>Use <strong>Settings &rarr; Custom Care Reminders &rarr; Add Reminder</strong> for misting, lights off, or soaks, and verify delivery with <strong>Send Test Notification</strong>.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="settings" data-keywords="pin lock biometric fingerprint face security unlock password privacy">
+            <div class="guide-card-cat">Alerts, Lock &amp; Backup</div>
+            <h3>11. App PIN Lock &amp; Biometric Unlock</h3>
+            <p class="guide-summary">Protect sensitive logs with a salted PIN and fingerprint or face unlock.</p>
+            <ol class="guide-steps">
+              <li>Open <strong>Settings &rarr; App Lock &amp; Biometrics</strong> and toggle <strong>PIN Lock</strong> to set a 4&ndash;6 digit PIN (salted &amp; hashed on-device).</li>
+              <li>Optionally enable <strong>Biometric Unlock</strong> to verify via your device&rsquo;s fingerprint or face prompt.</li>
+              <li>BeardieCare automatically locks on cold launch and after spending 10+ seconds in the background.</li>
+            </ol>
+          </article>
+
+          <article class="guide-card" data-guide-card data-category="settings" data-keywords="backup restore export import json file save share merge replace transfer device">
+            <div class="guide-card-cat">Alerts, Lock &amp; Backup</div>
+            <h3>12. Backup, Restore, Export &amp; Import (JSON)</h3>
+            <p class="guide-summary">Move data across accounts/devices or archive offline snapshots anytime.</p>
+            <ol class="guide-steps">
+              <li>Go to <strong>Settings &rarr; Backup &amp; Restore</strong> (or tap <strong>Avatar Menu &rarr; Backup &amp; Restore</strong>).</li>
+              <li>Tap <strong>Export JSON</strong> to save a <code>.json</code> file via Android&rsquo;s file picker, or <strong>Share Backup</strong> to send it directly.</li>
+              <li>Tap <strong>Import / Restore Backup</strong> to load any <code>.json</code> snapshot and pick <strong>Merge &amp; Add</strong> (default, idempotent) or <strong>Replace All Data</strong>. App PIN &amp; Sign-In are preserved.</li>
+            </ol>
+          </article>
+        </div>
+
+        <div id="empty-guide-msg" class="empty-guide-msg" hidden>
+          No guide topics match your search. Clear the filter or try keywords like <strong>UVB</strong>, <strong>8-day</strong>, <strong>PDF</strong>, or <strong>backup</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- Husbandry Reference Targets -->
+    <section id="targets" class="section-block">
+      <div class="container">
+        <div class="targets-header-row">
+          <div class="section-header" style="margin-bottom:0;">
+            <span class="section-eyebrow">Reference Ranges</span>
+            <h2>Adult Bearded Dragon Husbandry Targets</h2>
+            <p>Built-in reference zones used across Habitat gauges, status badges, and Veterinary PDF reports.</p>
+          </div>
+          <div class="unit-toggle-group" role="group" aria-label="Temperature Unit Toggle">
+            <button type="button" class="unit-btn active" data-set-unit="F" aria-pressed="true">&deg;F Fahrenheit</button>
+            <button type="button" class="unit-btn" data-set-unit="C" aria-pressed="false">&deg;C Celsius</button>
+          </div>
+        </div>
+
+        <div class="targets-grid">
+          <div class="target-tile">
+            <div class="mini-stat-label">Basking Surface</div>
+            <div id="target-basking-value" class="target-value font-mono">95&ndash;110 &deg;F</div>
+            <p style="margin:0;font-size:0.86rem;color:var(--muted);">Measured directly on the basking rock for proper digestion.</p>
+          </div>
+          <div class="target-tile">
+            <div class="mini-stat-label">Cool Side Zone</div>
+            <div id="target-cool-value" class="target-value font-mono" style="color:var(--secondary);">75&ndash;85 &deg;F</div>
+            <p style="margin:0;font-size:0.86rem;color:var(--muted);">Shaded thermal retreat zone (optional condition toggle).</p>
+          </div>
+          <div class="target-tile">
+            <div class="mini-stat-label">Ambient Humidity</div>
+            <div class="target-value font-mono" style="color:var(--tertiary);">30&ndash;40% RH</div>
+            <p style="margin:0;font-size:0.86rem;color:var(--muted);">Logged as % Humidity when Humidity tracking is enabled.</p>
+          </div>
+          <div class="target-tile">
+            <div class="mini-stat-label">T5 HO UVB Lifespan</div>
+            <div class="target-value font-mono" style="color:var(--optimal);">180 Days</div>
+            <p style="margin:0;font-size:0.86rem;color:var(--muted);">Replace every 6 months before UV-B spectrum degrades.</p>
+          </div>
+        </div>
+
+        <div class="stages-strip">
+          <strong style="font-size:0.9rem;">Automatic Life Stages:</strong>
+          <span class="pill-badge pill-surface">Hatchling (&lt; 3 mo)</span>
+          <span class="pill-badge pill-surface">Juvenile (3&ndash;9 mo)</span>
+          <span class="pill-badge pill-surface">Sub-Adult (9&ndash;18 mo)</span>
+          <span class="pill-badge pill-surface">Adult (18 mo&ndash;7 yr)</span>
+          <span class="pill-badge pill-surface">Senior (7+ yr)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Safety, Backup & Contact Band -->
+    <section id="privacy-backup" class="section-block" style="padding-top:16px;">
+      <div class="container">
+        <div class="surface-band two-col-split">
+          <div>
+            <span class="section-eyebrow">Zero-Trust Privacy &amp; Portability</span>
+            <h2 style="font-size:clamp(1.45rem,2.4vw,1.9rem);margin-bottom:10px;">Your Data Stays Yours</h2>
+            <p style="color:var(--muted);margin:0 0 12px;">
+              BeardieCare authenticates with Google via Credential Manager and isolates every dragon profile, feeding, weigh-in, climate reading, brumation log, and schedule under your private user ID in Cloud Firestore.
+            </p>
+            <ul class="feature-bullets" style="margin-bottom:18px;">
+              <li><strong>No ads, no analytics trackers, no data sales.</strong></li>
+              <li><strong>Confirmed Deletions:</strong> Every delete button (climates, meals, weights, presets, reminders, dragons, account) asks for confirmation first.</li>
+              <li><strong>Zero Broad Storage Permissions:</strong> Uses Android&rsquo;s Photo Picker and Storage Access Framework for JSON backups, PDFs, and share cards.</li>
+            </ul>
+            <div class="cta-row">
+              <a href="privacy.html" class="btn btn-secondary">Read Full Privacy Policy</a>
+            </div>
+          </div>
+
+          <div id="contact" class="contact-card">
+            <span class="section-eyebrow" style="margin-bottom:0;">Developer &amp; Community</span>
+            <h3 style="font-size:1.25rem;">Get in Touch</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.92rem;">
+              Created by <strong>Jason Caunt</strong>. Have feedback, feature requests, bug reports, or account data inquiries? Reach out anytime.
+            </p>
+            <div style="background:var(--surface);padding:12px 14px;border-radius:14px;border:1px solid var(--outline-soft);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+              <div>
+                <div style="font-size:0.75rem;color:var(--muted);font-weight:600;">Developer Email</div>
+                <a href="mailto:beardiecare73@gmail.com" class="font-mono" style="font-size:0.9rem;font-weight:700;">beardiecare73@gmail.com</a>
+              </div>
+              <button type="button" id="copy-email-btn" class="btn btn-tonal" style="min-height:38px;padding:0 12px;font-size:0.82rem;">Copy Email</button>
+            </div>
+            <div class="cta-row" style="margin-top:4px;">
+              <a href="mailto:beardiecare73@gmail.com?subject=BeardieCare%20Support%20%2F%20Feedback" class="btn btn-primary" style="flex:1 1 auto;">Email Support</a>
+              <a href="https://www.facebook.com/beardiecare73" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="flex:1 1 auto;">Facebook Page</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        &copy; 2026 <strong>BeardieCare</strong> &bull; Android Package <span class="font-mono">com.aistudio.beardiecare.xqmrtv</span>
+      </div>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#how-to-use">How to Use</a>
+        <a href="#targets">Targets</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://www.facebook.com/beardiecare73" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="mailto:beardiecare73@gmail.com">beardiecare73@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
