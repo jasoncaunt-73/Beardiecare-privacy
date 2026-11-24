@@ -28,13 +28,16 @@
       </nav>
 
       <div class="header-actions">
-        <div class="theme-pill-group" role="group" aria-label="Theme Mode">
-          <button type="button" class="theme-pill active" data-set-theme="auto" aria-pressed="true">Auto</button>
-          <button type="button" class="theme-pill" data-set-theme="light" aria-pressed="false">Light</button>
-          <button type="button" class="theme-pill" data-set-theme="dark" aria-pressed="false">Dark</button>
-        </div>
-        <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav">
-          Menu
+        <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Theme: Auto. Switch theme mode" title="Theme: Auto — Click to switch (Auto / Light / Dark)">
+          <span class="theme-icon" aria-hidden="true"></span>
+          <span class="theme-label">Auto</span>
+        </button>
+        <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+          <span class="hamburger-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </button>
       </div>
     </div>
@@ -49,7 +52,7 @@
           <div class="hero-banner-scrim" aria-hidden="true"></div>
           <div class="hero-banner-content">
             <div class="hero-badge-row">
-              <span class="pill-badge pill-terracotta">Android App &bull; v25.0</span>
+              <span class="pill-badge pill-terracotta">Android App &bull; v27.0</span>
               <span class="pill-badge pill-emerald">Desert &amp; Nocturnal M3 Theme</span>
             </div>
             <h1>Your Complete Pogona Sanctuary &amp; Care Companion</h1>
