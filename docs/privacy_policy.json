@@ -1,0 +1,112 @@
+{
+  "appName": "BeardieCare",
+  "packageId": "com.aistudio.beardiecare.xqmrtv",
+  "effectiveDate": "November 23, 2026",
+  "footerText": "© 2026 BeardieCare • Last updated November 23, 2026",
+  "sections": [
+    {
+      "id": "overview",
+      "title": "1. Overview",
+      "paragraphs": [
+        "BeardieCare (\"we\", \"our\", or \"the app\") is a bearded dragon care and husbandry companion app for Android. This Privacy Policy explains what data BeardieCare collects, how it is stored and used, and how you can export or delete your account and data."
+      ]
+    },
+    {
+      "id": "information-collected",
+      "title": "2. Information We Collect",
+      "bullets": [
+        {
+          "label": "Google Account Information",
+          "text": "When you sign in with Google via Firebase Authentication, we receive your Google user ID (UID), email address, and basic profile information solely to authenticate your account and isolate your private pet records."
+        },
+        {
+          "label": "Pet & Husbandry Records",
+          "text": "Information you voluntarily enter, including bearded dragon profiles (name, morph, sex, hatch date, adoption date, UVB bulb replacement date, enclosure notes), feeding and supplement logs, weight/length logs, terrarium readings (basking temperature, plus optional cool-side temperature and humidity only when those metrics are enabled), brumation cycles, and care schedules."
+        },
+        {
+          "label": "Profile Photos (Optional)",
+          "text": "Selected via Android's zero-permission Photo Picker. Only a local device URI reference is stored for display; BeardieCare does not access your broader photo library."
+        },
+        {
+          "label": "Local Preferences, App Lock & Reminders",
+          "text": "Theme mode (Auto/Light/Dark), temperature unit (°F/°C), habitat metric toggles, 7/8-day supplement cycle configuration, custom supplement names, saved meal presets, custom care reminders, and an optional on-device salted/hashed 4–6 digit App Lock PIN are stored locally on your device. Biometric unlock relies strictly on the Android system biometric prompt; BeardieCare never accesses or stores raw fingerprint or facial recognition data."
+        }
+      ]
+    },
+    {
+      "id": "permissions",
+      "title": "3. Permissions Used",
+      "bullets": [
+        {
+          "label": "Internet Access",
+          "text": "Used for Google Sign-In and syncing your husbandry data with Cloud Firestore."
+        },
+        {
+          "label": "Notifications (Optional)",
+          "text": "Requested only when you enable care, milestone, or custom reminders."
+        },
+        {
+          "label": "Receive Boot Completed (Optional)",
+          "text": "Used only to restore your enabled care reminder alarms after your device restarts."
+        },
+        {
+          "label": "Biometric Unlock (Optional, USE_BIOMETRIC)",
+          "text": "Used only if you enable Biometric Unlock in Settings to verify your identity locally via Android's system prompt."
+        }
+      ],
+      "footerNote": "BeardieCare does not request location, camera, microphone, contacts, or broad external storage permissions."
+    },
+    {
+      "id": "storage-backups",
+      "title": "4. Data Storage, Backups & Third-Party Services",
+      "paragraphs": [
+        "Your account and husbandry records are stored in Google Firebase Authentication and Cloud Firestore (provided by Google LLC) using security rules that restrict read/write access exclusively to your authenticated user ID.",
+        "BeardieCare contains no third-party advertising SDKs, does not sell personal data, and does not share your data with data brokers. Exported veterinary PDF reports, growth/milestone PNG cards, and JSON backup files (via Android's system file picker or Share sheet) are generated or read locally on your device only when you choose to export, share, or restore a backup. App Lock PIN hashes and authentication credentials are never included in exported backup files."
+      ]
+    },
+    {
+      "id": "data-deletion",
+      "title": "5. Account & Data Deletion",
+      "paragraphs": [
+        "You may delete individual dragon profiles, logs, presets, or reminders at any time inside the app (every delete action requires confirmation). To permanently delete your BeardieCare account and all associated cloud data:"
+      ],
+      "bullets": [
+        {
+          "label": "In the App",
+          "text": "Sign in, tap your profile avatar in the top-right corner, and choose Delete Account & Data."
+        },
+        {
+          "label": "By Email Request",
+          "text": "Email beardiecare73@gmail.com from your registered Google account email with the subject \"BeardieCare Account Deletion Request\", and we will verify and remove your account records within 7 days."
+        }
+      ],
+      "footerNote": "Uninstalling the app removes locally stored preferences, App Lock settings, and scheduled local reminders from your device."
+    },
+    {
+      "id": "childrens-privacy",
+      "title": "6. Children's Privacy",
+      "paragraphs": [
+        "BeardieCare is not directed to children under the age of 13 and does not knowingly collect personal information from children under 13."
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "7. Contact",
+      "paragraphs": [
+        "For privacy questions, account requests, or support, contact the developer using the links below:"
+      ],
+      "links": [
+        {
+          "label": "Developer Email",
+          "text": "beardiecare73@gmail.com",
+          "url": "mailto:beardiecare73@gmail.com"
+        },
+        {
+          "label": "Community Page",
+          "text": "BeardieCare on Facebook",
+          "url": "https://www.facebook.com/beardiecare73"
+        }
+      ]
+    }
+  ]
+}
